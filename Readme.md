@@ -25,17 +25,17 @@ Compiling Tests is required as in order to support typescript the typescript fil
 
 ## Executing Tests
 
-### Test :earth_africa:
+### Running a Performance Test :earth_africa:
 Execute a test with the thread configuration provided in the test-orchestrator
 
 ``npm run test``
 
-### Validate :house:
+### Validating the Suite :house:
 Execute the entire suite however limit the VU's to 1 so that the user can validate that the test works on a single thread.
 
 ``npm run validate``
 
-### Scenario :man:
+### Running an Individual Scenario :man:
 Execute an individual scenario
 
 ``k6 run -- "<ScenarioFilePath"``

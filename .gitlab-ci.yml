@@ -25,7 +25,8 @@ validate:
     - npm run validate
 
 execute:
-  trigger: manual
+  only: 
+    - manual
   stage: performance-test
   image:
     name: loadimpact/k6

@@ -2,21 +2,36 @@
 
 This template is to define a sample project that can be used for performance testing on other projects.
 
-## How this was created
+## Installation :hammer:
 
-You will need to init a project using typescript
+``npm install``
 
-``npm init``
+You will also need to install the K6 Binary
+See: https://k6.io/docs/get-started/installation/
 
-Then install typescript and k6 globally
+## Compiling Tests
 
-```
-npm install -g typescript
-npm install -g k6
-```
+Compiling Tests is required as in order to support typescript the typescript files need to be transpiled into Javascript (Which is what K6 uses)
 
-As well as installing the Types for K6:
+``npm run compile``
 
-``npm install @types/k6``
+## Executing Tests
 
+### Test :earth_africa:
+Execute a test with the thread configuration provided in the test-orchestrator
 
+``npm run test``
+
+### Validate :house:
+Execute the entire suite however limit the VU's to 1 so that the user can validate that the test works on a single thread.
+
+``npm run validate``
+
+### Scenario :man:
+Execute an individual scenario
+
+``k6 run -- "<ScenarioFilePath"``
+
+**e.g.**
+
+``k6 run -- .\dist\getProduct.js``

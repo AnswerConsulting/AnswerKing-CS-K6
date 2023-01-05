@@ -16,25 +16,25 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+image: node:lts-slim
+
 stages:
   - validate
   - test
 
-validate:  
+validate:
   stage: validate
-  image:
-    name: loadimpact/k6
-    entrypoint: [""]
   script:
-    - k6 run src/master-test.js -e ITERATION_OVERRIDE=1
+    - npm install
+    - npm run compile
+    - npm run validate
 
 execute:
-  only: 
+  only:
     - manual
   stage: test
-  image:
-    name: loadimpact/k6
-    entrypoint: [""]
   script:
-    - k6 run src/master-test.js
+    - npm install
+    - npm run compile
+    - npm run test
 

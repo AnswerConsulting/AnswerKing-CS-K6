@@ -4,6 +4,14 @@ This template is to define a sample project that can be used for performance tes
 
 ## Installation :hammer:
 
+This framework has been created using Node:16
+You can install this from
+
+https://nodejs.org/en/blog/release/v16.16.0/
+
+I recommend using NVM or NVM for Windows as this is not the latest version of Node.
+
+
 ``npm install``
 
 You will also need to install the K6 Binary

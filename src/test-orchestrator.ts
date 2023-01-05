@@ -1,7 +1,7 @@
 //This file acts as the main configuration file for a test.
 //Here we define the iteration, duration, executor type for a script.
-export { getProduct } from "./scenarios/product/getProduct"
-export { getWebsite } from "./scenarios/web/getWebsite"
+export { getProduct } from "./scenarios/product/get-product"
+export { getWebsite } from "./scenarios/web/get-website"
 
 export let options = {
     scenarios: {

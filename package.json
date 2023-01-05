@@ -6,6 +6,7 @@
   "scripts": {
     "compile": "tsc",
     "scenario": "k6 run",
+    "single-iteration": "k6 run src/master-test.js -e ITERATION_OVERRIDE=1",
     "test": "k6 run src/master-test.js"
   },
   "author": "",

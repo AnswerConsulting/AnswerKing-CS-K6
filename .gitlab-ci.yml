@@ -16,13 +16,17 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
+stages:
+  - validate
+  - test
+
 validate:  
-  stage: test
+  stage: validate
   image:
     name: loadimpact/k6
     entrypoint: [""]
   script:
-    - npm run validate
+    - k6 run src/master-test.js -e ITERATION_OVERRIDE=1
 
 execute:
   only: 
@@ -32,5 +36,5 @@ execute:
     name: loadimpact/k6
     entrypoint: [""]
   script:
-    - npm run test
+    - k6 run src/master-test.js
 

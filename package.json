@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "webpack",
+    "build": "webpack",
     "scenario": "k6 run",
     "validate": "k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1",
     "test": "k6 run dist/test-orchestrator.js"

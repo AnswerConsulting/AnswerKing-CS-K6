@@ -16,7 +16,9 @@
 # This specific template is located at:
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
-image: loadimpact/k6
+image:
+  name: loadimpact/k6
+  entrypoint: [""]
 
 stages:
   - build

@@ -19,9 +19,9 @@
 image: loadimpact/k6
 
 stages:
+  - build
   - validate
   - test
-  - build
 
 build:
   stage: build

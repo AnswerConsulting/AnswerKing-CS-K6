@@ -1,5 +1,6 @@
 image:
   name: loadimpact/k6
+  entrypoint: [""]
 
 stages:
   - build

@@ -1,12 +1,16 @@
 import { check } from "k6";
 import http from "k6/http";
 
+// @ts-ignore
+import pw from 'k6/x/playwright';
+
+
 export function getWebsite() {
-    let res = http.get("https://example.com");
-    check(res, {
-        "status was 200": (r) => r.status == 200,
-        "transaction time OK": (r) => r.timings.duration < 200
-    });
+    pw.launch()
+    pw.newPage()
+    pw.goto("https://www.google.com/", {waitUntil: 'networkidle'})
+    pw.waitForSelector("input[title='Search']", {state: 'visible'})
+    pw.kill()
 }
 
 export default function() {

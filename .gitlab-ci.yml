@@ -17,8 +17,7 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 image:
-  name: loadimpact/k6
-  entrypoint: [""]
+  name: registry.gitlab.com/answerdigital/qe-capability/templates/typescriptk6projecttemplate
 
 stages:
   - build
@@ -40,7 +39,7 @@ validate:
   dependencies:
     - build
   script:
-    - k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1
+    - npm run validate
 
 execute:
   only:
@@ -49,5 +48,5 @@ execute:
   dependencies:
     - build
   script:
-    - k6 run dist/test-orchestrator.js
+    - npm run test
 

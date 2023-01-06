@@ -43,3 +43,7 @@ Execute an individual scenario
 **e.g.**
 
 ``k6 run -- .\dist\getProduct.js``
+
+## Playwright Support
+
+The get-website.ts file is a test that 

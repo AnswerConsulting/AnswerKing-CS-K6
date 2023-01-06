@@ -12,11 +12,11 @@ RUN wget -q $GO_DOWNLOAD_URL -O go.tar.gz \
 
 ENV PATH=$PATH:/usr/local/go/bin
 ENV PATH=$PATH:/go/bin
-
 ENV GOPATH=/go
 
 RUN go install go.k6.io/xk6/cmd/xk6@latest
 
 WORKDIR /go/bin
+
 RUN ./xk6 build --output xk6-playwright --with github.com/wosp-io/xk6-playwright
 RUN go run github.com/playwright-community/playwright-go/cmd/playwright@latest install --with-deps

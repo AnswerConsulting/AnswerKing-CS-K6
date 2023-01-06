@@ -14,8 +14,8 @@ I recommend using NVM or NVM for Windows as this is not the latest version of No
 
 ``npm install``
 
-You will also need to install the K6 Binary
-See: https://k6.io/docs/get-started/installation/
+You will also need to install the K6 Binary with Playwright Installed
+https://github.com/wosp-io/xk6-playwright
 
 ## Compiling Tests
 
@@ -38,11 +38,11 @@ Execute the entire suite however limit the VU's to 1 so that the user can valida
 ### Running an Individual Scenario :man:
 Execute an individual scenario
 
-``k6 run -- "<ScenarioFilePath"``
+``npm run scenario -- "<ScenarioFilePath"``
 
 **e.g.**
 
-``k6 run -- .\dist\getProduct.js``
+``npm run scenario -- .\dist\getProduct.js``
 
 ## Playwright Support
 

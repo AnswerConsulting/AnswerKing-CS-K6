@@ -6,7 +6,7 @@ export { getWebsite } from "./scenarios/web/get-website"
 export let options = {
     ext: {
         loadimpact: {
-            projectID: 3622015,
+            projectID: __ENV.K6_PROJECT_ID,
             // Test runs with the same name groups test runs together
             name: "QE Engineering Template"
         }

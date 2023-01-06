@@ -32,5 +32,5 @@ execute:
     - build
   script:
     - npm install cross-os --save-dev
-    - npm run test
+    - npm run test -- -e K6_PROJECT_ID=$K6_CLOUD_ID
 

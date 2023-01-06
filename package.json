@@ -11,23 +11,22 @@
   },
   "cross-os": {
     "scenario": {
-      "win32": "xk6-playwright.exe run",
-      "linux": "xk6-playwright run"
+      "win32": "npm run build && k6 run",
+      "linux": "npm run build && k6 run"
     },
     "validate": {
-      "win32": "xk6-playwright.exe run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1",
-      "linux": "xk6-playwright run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1"
+      "win32": "npm run build && k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1",
+      "linux": "npm run build && k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1"
     },
     "test": {
-      "win32": "xk6-playwright.exe run -o cloud dist/test-orchestrator.js",
-      "linux": "xk6-playwright run -o cloud dist/test-orchestrator.js"
+      "win32": "npm run build && k6 run -o cloud dist/test-orchestrator.js",
+      "linux": "npm run build && k6 run -o cloud dist/test-orchestrator.js"
     }
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/k6": "^0.42.0",
-    "cross-os": "^1.5.0",
     "k6-html-reporter": "^1.0.5"
   },
   "devDependencies": {
@@ -41,6 +40,7 @@
     "babel-loader": "8.2.2",
     "clean-webpack-plugin": "4.0.0-alpha.0",
     "copy-webpack-plugin": "^9.0.1",
+    "cross-os": "^1.5.0",
     "typescript": "4.2.4",
     "webpack": "5.35.1",
     "webpack-cli": "4.6.0",

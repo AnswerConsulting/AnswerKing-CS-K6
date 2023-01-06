@@ -4,19 +4,26 @@ export { getProduct } from "./scenarios/product/get-product"
 export { getWebsite } from "./scenarios/web/get-website"
 
 export let options = {
+    ext: {
+        loadimpact: {
+            projectID: 3622015,
+            // Test runs with the same name groups test runs together
+            name: "QE Engineering Template"
+        }
+    },
     scenarios: {
         test1: {
             executor: 'shared-iterations',
             exec: "getWebsite",
             vus: 1,
-            iterations: __ENV.ITERATION_OVERRIDE || 100,
+            iterations: __ENV.ITERATION_OVERRIDE || 1,
             maxDuration: "1m"
         },
         test2: {
             executor: 'shared-iterations',
             exec: "getProduct",
             vus: 1,
-            iterations: __ENV.ITERATION_OVERRIDE || 250,
+            iterations: __ENV.ITERATION_OVERRIDE || 1,
             maxDuration: "1m"
         }
     }

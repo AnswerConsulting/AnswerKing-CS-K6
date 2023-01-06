@@ -7,7 +7,7 @@
     "build": "webpack",
     "scenario": "cross-os scenario",
     "validate": "cross-os validate",
-    "test": "cross-ost test"
+    "test": "cross-os test"
   },
   "cross-os": {
     "scenario": {
@@ -19,15 +19,16 @@
       "linux": "xk6-playwright run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1"
     },
     "test": {
-      "win32": "xk6-playwright.exe run dist/test-orchestrator.js",
-      "linux": "xk6-playwright run dist/test-orchestrator.js"
+      "win32": "xk6-playwright.exe run -o cloud dist/test-orchestrator.js",
+      "linux": "xk6-playwright run -o cloud dist/test-orchestrator.js"
     }
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/k6": "^0.42.0",
-    "cross-os": "^1.5.0"
+    "cross-os": "^1.5.0",
+    "k6-html-reporter": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "7.13.16",

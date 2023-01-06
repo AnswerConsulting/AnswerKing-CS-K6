@@ -1,5 +1,5 @@
 image:
-  name: loadimpact/k6
+  name: registry.gitlab.com/answerdigital/qe-capability/templates/typescriptk6projecttemplate:no-pw
   entrypoint: [""]
 
 stages:

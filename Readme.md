@@ -43,8 +43,3 @@ Execute an individual scenario
 **e.g.**
 
 ``npm run scenario -- .\dist\getProduct.js``
-
-## Playwright Support
-
-The get-website.ts file is a test that utilises Playwright to run a browser with a VU's
-This is resource intensive but allows you to monitor a basic website function while a test is running.

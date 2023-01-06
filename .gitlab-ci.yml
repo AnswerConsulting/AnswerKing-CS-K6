@@ -1,5 +1,5 @@
 image:
-  name: registry.gitlab.com/answerdigital/qe-capability/templates/typescriptk6projecttemplate:no-pw
+  name: loadimpact/k6
   entrypoint: [""]
 
 stages:
@@ -12,16 +12,17 @@ build:
   image: node:16-alpine3.16
   script:
     - npm install
+    - npm run build
   artifacts:
     paths:
-      - node_modules/
+      - dist/
 
 validate:
   stage: validate
   dependencies:
     - build
   script:
-    - npm run validate
+    - k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1
 
 execute:
   only:
@@ -30,5 +31,5 @@ execute:
   dependencies:
     - build
   script:
-    - npm run test -- -e K6_PROJECT_ID=$K6_CLOUD_ID
+    - k6 run -o cloud dist/test-orchestrator.js -e K6_PROJECT_ID=$K6_CLOUD_ID
 

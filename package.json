@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack",
     "scenario": "cross-os scenario",
-    "validate": "xk6-playwright.exe run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1",
-    "test": "xk6-playwright.exe run dist/test-orchestrator.js"
+    "validate": "cross-os validate",
+    "test": "cross-ost test"
   },
   "cross-os": {
     "scenario": {

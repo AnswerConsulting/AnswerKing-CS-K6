@@ -39,6 +39,7 @@ validate:
   dependencies:
     - build
   script:
+    - npm install cross-os --save-dev
     - npm run validate
 
 execute:
@@ -48,5 +49,6 @@ execute:
   dependencies:
     - build
   script:
+    - npm install cross-os --save-dev
     - npm run test
 

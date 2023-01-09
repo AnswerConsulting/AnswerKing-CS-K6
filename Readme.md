@@ -42,4 +42,4 @@ Execute an individual scenario
 
 **e.g.**
 
-``npm run scenario -- .\dist\getProduct.js``
+``npm run scenario -- .\scenarios\product\get-categories.js``

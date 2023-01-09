@@ -11,16 +11,16 @@
   },
   "cross-os": {
     "scenario": {
-      "win32": "npm run build && k6 run",
-      "linux": "npm run build && k6 run"
+      "win32": "k6 run",
+      "linux": "k6 run"
     },
     "validate": {
-      "win32": "npm run build && k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1",
-      "linux": "npm run build && k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1"
+      "win32": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1",
+      "linux": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1"
     },
     "test": {
-      "win32": "npm run build && k6 run -o cloud dist/test-orchestrator.js",
-      "linux": "npm run build && k6 run -o cloud dist/test-orchestrator.js"
+      "win32": "k6 run -o cloud ./src/test-orchestrator.js",
+      "linux": "k6 run -o cloud ./src/test-orchestrator.js"
     }
   },
   "author": "",

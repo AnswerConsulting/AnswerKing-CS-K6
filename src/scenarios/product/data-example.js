@@ -11,7 +11,7 @@ export function dataExample() {
     const index = Math.floor(Math.random() * data.length);
     const user = data[index];
     console.log(user.last_name);
-    console.log("test")
+    console.log(user.email);
 }
 
 export default function() {

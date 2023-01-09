@@ -9,12 +9,12 @@ stages:
 validate:
   stage: validate
   script:
-    - k6 run dist/test-orchestrator.js -e ITERATION_OVERRIDE=1
+    - k6 run src/test-orchestrator.js -e ITERATION_OVERRIDE=1
 
 execute:
   only:
     - manual
   stage: test
   script:
-    - k6 run -o cloud dist/test-orchestrator.js -e K6_PROJECT_ID=$K6_CLOUD_ID
+    - k6 run -o cloud src/test-orchestrator.js -e K6_PROJECT_ID=$K6_CLOUD_ID
 

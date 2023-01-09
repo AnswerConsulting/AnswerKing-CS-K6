@@ -1,7 +1,7 @@
 import { check } from "k6";
 import http from "k6/http";
 
-export function getOrder() {
+export function httpExample() {
     let res = http.get("https://example.com");
     check(res, {
         "status was 200": (r) => r.status == 200,
@@ -10,5 +10,5 @@ export function getOrder() {
 }
 
 export default function() {
-    getOrder()
+    httpExample()
 }

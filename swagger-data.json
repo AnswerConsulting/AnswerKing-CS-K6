@@ -1,0 +1,1609 @@
+{
+    "uuid": "b08196ac-54f5-4487-b450-f8baa5dcdd12",
+    "lastMigration": 25,
+    "name": "Answer King API",
+    "endpointPrefix": "",
+    "latency": 0,
+    "port": 3002,
+    "hostname": "0.0.0.0",
+    "folders": [],
+    "routes": [
+      {
+        "uuid": "7089cabb-5fb8-43a8-ac8f-9a8d85873053",
+        "documentation": "Get all categories.",
+        "method": "get",
+        "endpoint": "api/categories",
+        "responses": [
+          {
+            "uuid": "f4cdc946-4e08-41f5-b786-5a7bd76d956b",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\",\n    \"description\": \"\",\n    \"createdOn\": \"{{faker 'date.recent' 365}}\",\n    \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n    \"products\": [\n      {{faker 'datatype.number'}}\n    ],\n    \"retired\": {{faker 'datatype.boolean'}}\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the categories have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "5b36bc43-7fb1-4295-9ab6-3019152655bf",
+        "documentation": "Create a new category.",
+        "method": "post",
+        "endpoint": "api/categories",
+        "responses": [
+          {
+            "uuid": "17e3f99b-5826-48d6-945e-12dcad0d3839",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 201,
+            "label": "When the category has been created.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "c1f9a503-2e27-4915-9f70-2bd6847949b6",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "0c377d2d-66b0-47a9-873b-a3f4ad5b892e",
+        "documentation": "Get a single category.",
+        "method": "get",
+        "endpoint": "api/categories/:id",
+        "responses": [
+          {
+            "uuid": "8c3f6078-d791-4785-a213-85aeca17bdbd",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the category with the provided id has been found.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "762f41fb-5266-46d3-b2db-fd65c11d99b7",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the category with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "d182b4b2-f42e-4773-b137-b142e26aabd8",
+        "documentation": "Update an existing category.",
+        "method": "put",
+        "endpoint": "api/categories/:id",
+        "responses": [
+          {
+            "uuid": "04c2ee00-b8c6-4bfc-868b-79b96db498bd",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the category has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "905f08e5-49f5-4c19-89de-ca9eb625f330",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "5391fdcd-c100-4c58-9c43-7d419fb71391",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the category with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "86a987f6-8159-45a9-a027-3e9f4c2ac92d",
+        "documentation": "Retire an existing category.",
+        "method": "delete",
+        "endpoint": "api/categories/:id",
+        "responses": [
+          {
+            "uuid": "20977766-83a4-4851-9609-dd09fbb68fd9",
+            "body": "",
+            "latency": 0,
+            "statusCode": 204,
+            "label": "When the category has been retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "8ed240e9-0289-42ad-ae35-08f303182a48",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "b716b214-6a98-40cb-9b10-03677960dbfa",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the category with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "22f41150-0584-4830-bed2-716a4b44cc18",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 410,
+            "label": "When the category with the given id is already retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "bd2e2c89-e17f-45f9-94ae-906c32ebb5c5",
+        "documentation": "Get all products in a category.",
+        "method": "get",
+        "endpoint": "api/categories/:id/products",
+        "responses": [
+          {
+            "uuid": "34ec3cc0-2072-4a13-b973-1552a17ab6a7",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\",\n    \"description\": \"\",\n    \"price\": {{faker 'datatype.float'}},\n    \"categories\": [\n      {{faker 'datatype.number'}}\n    ],\n    \"tags\": [\n      {\n        \"value\": {{faker 'datatype.number'}}\n      }\n    ],\n    \"retired\": {{faker 'datatype.boolean'}}\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the products have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "066eb075-4dc9-42e2-8ce3-d31f7a4525b9",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the category with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "0e3d8274-3636-4d2e-a25d-574d07aa5e60",
+        "documentation": "Get all orders.",
+        "method": "get",
+        "endpoint": "api/orders",
+        "responses": [
+          {
+            "uuid": "7248e6ae-4cc2-419a-97f8-dd7c64024256",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"createdOn\": \"{{faker 'date.recent' 365}}\",\n    \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n    \"orderStatus\": \"{{oneOf (array 'created' 'complete' 'cancelled')}}\",\n    \"orderTotal\": {{faker 'datatype.float'}},\n    \"lineItems\": [\n      {\n        \"product\": {\n          \"id\": {{faker 'datatype.number'}},\n          \"name\": \"\",\n          \"description\": \"\",\n          \"price\": {{faker 'datatype.float'}}\n        },\n        \"quantity\": {{faker 'datatype.number'}},\n        \"subTotal\": {{faker 'datatype.float'}}\n      }\n    ]\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the orders have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "cd9e59bc-1e99-4b68-a7ee-f56017661e43",
+        "documentation": "Create a new order.",
+        "method": "post",
+        "endpoint": "api/orders",
+        "responses": [
+          {
+            "uuid": "17c1d1f5-d016-4e21-8ed8-f6ad6118b807",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"orderStatus\": \"{{oneOf (array 'created' 'complete' 'cancelled')}}\",\n  \"orderTotal\": {{faker 'datatype.float'}},\n  \"lineItems\": [\n    {\n      \"product\": {\n        \"id\": {{faker 'datatype.number'}},\n        \"name\": \"\",\n        \"description\": \"\",\n        \"price\": {{faker 'datatype.float'}}\n      },\n      \"quantity\": {{faker 'datatype.number'}},\n      \"subTotal\": {{faker 'datatype.float'}}\n    }\n  ]\n}",
+            "latency": 0,
+            "statusCode": 201,
+            "label": "When the order has been created.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "b63bf71f-3c9f-4aac-8fbb-beba28660370",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "fed27f5f-5af2-4a13-ba85-de7f8618d912",
+        "documentation": "Get a single order.",
+        "method": "get",
+        "endpoint": "api/orders/:id",
+        "responses": [
+          {
+            "uuid": "591033cc-a800-428e-ad62-24cb2d298fcf",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"orderStatus\": \"{{oneOf (array 'created' 'complete' 'cancelled')}}\",\n  \"orderTotal\": {{faker 'datatype.float'}},\n  \"lineItems\": [\n    {\n      \"product\": {\n        \"id\": {{faker 'datatype.number'}},\n        \"name\": \"\",\n        \"description\": \"\",\n        \"price\": {{faker 'datatype.float'}}\n      },\n      \"quantity\": {{faker 'datatype.number'}},\n      \"subTotal\": {{faker 'datatype.float'}}\n    }\n  ]\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the order with the provided id has been found.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "75ceee6c-dc64-4dfa-b1db-f305bf02d7fd",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the order with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "252a7450-4599-4bdc-83c8-4b7b6a6a8b6e",
+        "documentation": "Update an existing order.",
+        "method": "put",
+        "endpoint": "api/orders/:id",
+        "responses": [
+          {
+            "uuid": "7cf41688-6ca3-4ca8-a047-f29e6bed0cbd",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"orderStatus\": \"{{oneOf (array 'created' 'complete' 'cancelled')}}\",\n  \"orderTotal\": {{faker 'datatype.float'}},\n  \"lineItems\": [\n    {\n      \"product\": {\n        \"id\": {{faker 'datatype.number'}},\n        \"name\": \"\",\n        \"description\": \"\",\n        \"price\": {{faker 'datatype.float'}}\n      },\n      \"quantity\": {{faker 'datatype.number'}},\n      \"subTotal\": {{faker 'datatype.float'}}\n    }\n  ]\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the order has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "9f774693-f576-4bad-b373-5f0c2d12ae39",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "cb255c0d-c786-4158-ac78-471e56583b3f",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the order with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "b609afd2-f74d-4f80-82f8-1b720b2a45b6",
+        "documentation": "Cancel an existing order.",
+        "method": "delete",
+        "endpoint": "api/orders/:id",
+        "responses": [
+          {
+            "uuid": "178056b1-9b3d-41e9-b666-a80d819feef6",
+            "body": "",
+            "latency": 0,
+            "statusCode": 204,
+            "label": "When the order has been cancelled.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "ab204291-8e10-4caf-aa76-d6a6b4853445",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "407ce20f-086c-4933-a390-0f18836e3096",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the order with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "ced10cc7-38d5-4fc0-a8b2-4956a8e6b6d3",
+        "documentation": "Get all products.",
+        "method": "get",
+        "endpoint": "api/products",
+        "responses": [
+          {
+            "uuid": "c952d15e-80e5-4235-a000-2949286d019d",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\",\n    \"description\": \"\",\n    \"price\": {{faker 'datatype.float'}},\n    \"categories\": [\n      {{faker 'datatype.number'}}\n    ],\n    \"tags\": [\n      {\n        \"value\": {{faker 'datatype.number'}}\n      }\n    ],\n    \"retired\": {{faker 'datatype.boolean'}}\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the products have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "1ceffaab-1c34-4fdd-9964-6cb9ca68ee4a",
+        "documentation": "Create a new product.",
+        "method": "post",
+        "endpoint": "api/products",
+        "responses": [
+          {
+            "uuid": "f16292e8-0ae1-46ea-81a6-8f7cbbe4126b",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"price\": {{faker 'datatype.float'}},\n  \"categories\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"tags\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 201,
+            "label": "When the product has been created.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "c2f194f8-3f95-4985-b2c5-9e756f551a54",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "5803c51b-3a27-4a58-b667-ddfb27934010",
+        "documentation": "Get a single product.",
+        "method": "get",
+        "endpoint": "api/products/:id",
+        "responses": [
+          {
+            "uuid": "0e2666e7-73b9-4da3-a09d-4576d9058168",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"price\": {{faker 'datatype.float'}},\n  \"categories\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"tags\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the product with the provided id has been found.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "2da01b44-ab73-4e63-b9bf-ed78af557635",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the product with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "4e4612e0-ce68-4885-b214-d6672842747c",
+        "documentation": "Update an existing product.",
+        "method": "put",
+        "endpoint": "api/products/:id",
+        "responses": [
+          {
+            "uuid": "c5a25db6-ed48-4fa7-add8-f080fbdbc595",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"price\": {{faker 'datatype.float'}},\n  \"categories\": [\n    {{faker 'datatype.number'}}\n  ],\n  \"tags\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the product has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "40ea0bf9-6728-40b1-8330-707a52243f2a",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "e06929c6-402e-4095-b8ef-860813bec273",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the product with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "c0e0ffd2-b4b4-4459-a824-8646e8ca58da",
+        "documentation": "Retire an existing product.",
+        "method": "delete",
+        "endpoint": "api/products/:id",
+        "responses": [
+          {
+            "uuid": "d3ba7304-20ab-49c2-8a2b-a473d2c4f75b",
+            "body": "",
+            "latency": 0,
+            "statusCode": 204,
+            "label": "When the product has been retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "9b0eff15-63d7-4085-9a0d-71b343ea52de",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the product with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "b84044a9-9e0c-46b4-acac-0b371040204f",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 410,
+            "label": "When the product with the given id is already retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "7894510b-46ad-442f-a410-511523351c57",
+        "documentation": "Get all tags.",
+        "method": "get",
+        "endpoint": "api/tags",
+        "responses": [
+          {
+            "uuid": "d831f55e-92cb-44a8-a834-86adc19ad671",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\",\n    \"description\": \"\",\n    \"createdOn\": \"{{faker 'date.recent' 365}}\",\n    \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n    \"products\": [\n      {\n        \"value\": {{faker 'datatype.number'}}\n      }\n    ],\n    \"retired\": {{faker 'datatype.boolean'}}\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the tags have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "5c6868c9-5194-4eeb-a245-4339980419bd",
+        "documentation": "Create a new tag.",
+        "method": "post",
+        "endpoint": "api/tags",
+        "responses": [
+          {
+            "uuid": "ca2ea8a4-f5fe-4113-902d-21fed99e64e6",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 201,
+            "label": "When the tag has been created.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "b49c0dad-57cd-4019-aac1-5c6c5564efdd",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "83d8300e-2bd0-4739-af90-7b4d7212529c",
+        "documentation": "Get a single tag.",
+        "method": "get",
+        "endpoint": "api/tags/:id",
+        "responses": [
+          {
+            "uuid": "a33624d9-ed5e-4def-8d78-eac8e401c1da",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the tag with the provided id has been found.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "173d53d1-3ee0-49a0-a1a7-20fbff93744d",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "e02967b4-dbdb-459b-be77-a4046ecca551",
+        "documentation": "Update an existing tag.",
+        "method": "put",
+        "endpoint": "api/tags/:id",
+        "responses": [
+          {
+            "uuid": "6089ed82-1f64-4582-9b0e-3a93fae2435d",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the tag has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "e859de0f-daac-4b2b-b8d5-17c125fe2772",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "b738fb39-491c-480d-b979-b67cbed70c9f",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "1e0e81de-67d3-4e67-b9d3-16a1268b7f26",
+        "documentation": "Retire an existing tag.",
+        "method": "delete",
+        "endpoint": "api/tags/:id",
+        "responses": [
+          {
+            "uuid": "3b7ac17e-5c95-4445-829d-2f9ed0c6e449",
+            "body": "",
+            "latency": 0,
+            "statusCode": 204,
+            "label": "When the tag has been retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "7738597b-2991-46c3-9132-f4c7ffdc3e32",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "96423753-1bd5-41c4-85a6-51a4b8c6832d",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "2cbb0cc5-8de1-4747-b0a8-6063a73eea54",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 410,
+            "label": "When the tag with the given id is already retired.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "77f78594-5e3c-4e2a-8176-4e7ce5acd190",
+        "documentation": "Get all products in a tag.",
+        "method": "get",
+        "endpoint": "api/tags/:id/products",
+        "responses": [
+          {
+            "uuid": "e6214fe2-95df-44fc-b260-5fce492da1d9",
+            "body": "[\n  {\n    \"id\": {{faker 'datatype.number'}},\n    \"name\": \"\",\n    \"description\": \"\",\n    \"price\": {{faker 'datatype.float'}},\n    \"categories\": [\n      {{faker 'datatype.number'}}\n    ],\n    \"tags\": [\n      {\n        \"value\": {{faker 'datatype.number'}}\n      }\n    ],\n    \"retired\": {{faker 'datatype.boolean'}}\n  }\n]",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When all the products have been returned.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "8d34d9c5-9399-459e-8f46-72965462e573",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "db882cb5-9a1d-44ae-af24-83a98bed8133",
+        "documentation": "Assign products to an existing tag.",
+        "method": "put",
+        "endpoint": "api/tags/:id/products",
+        "responses": [
+          {
+            "uuid": "ca471f78-7253-4211-b774-ef0d40beb9d9",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the tag has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "43bb0673-6bd6-4983-bb34-b116f2000510",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "e401e5db-23ab-4fb6-8b98-f7dad8cb386a",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      },
+      {
+        "uuid": "4966bc8c-8f93-48de-9218-9002591e0b0f",
+        "documentation": "Remove products from an existing tag.",
+        "method": "delete",
+        "endpoint": "api/tags/:id/products",
+        "responses": [
+          {
+            "uuid": "a579a436-080a-4a0f-b9d4-6f1e5db101ac",
+            "body": "{\n  \"id\": {{faker 'datatype.number'}},\n  \"name\": \"\",\n  \"description\": \"\",\n  \"createdOn\": \"{{faker 'date.recent' 365}}\",\n  \"lastUpdated\": \"{{faker 'date.recent' 365}}\",\n  \"products\": [\n    {\n      \"value\": {{faker 'datatype.number'}}\n    }\n  ],\n  \"retired\": {{faker 'datatype.boolean'}}\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "When the tag has been updated.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+          },
+          {
+            "uuid": "7728c3aa-b0b5-4173-bfe4-8164d02d47cb",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 400,
+            "label": "When invalid parameters are provided.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          },
+          {
+            "uuid": "9b80d6bc-d930-431a-828c-8971c6b5ec7d",
+            "body": "\"{\\r\\n  \\\"errors\\\": {\\r\\n    \\\"lineItems\\\": [\\r\\n      \\\"The lineItems field is required.\\\"\\r\\n    ]\\r\\n  },\\r\\n  \\\"type\\\": \\\"https://tools.ietf.org/html/rfc7231#section-6.5.1\\\",\\r\\n  \\\"title\\\": \\\"One or more validation errors occurred.\\\",\\r\\n  \\\"status\\\": 400,\\r\\n  \\\"traceId\\\": \\\"00-f40e09a437a87f4ebcd2f39b128bb8f3-4b2ad798ac046140-00\\\"\\r\\n}\"",
+            "latency": 0,
+            "statusCode": 404,
+            "label": "When the tag with the given id does not exist.",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+          }
+        ],
+        "enabled": true,
+        "responseMode": null
+      }
+    ],
+    "rootChildren": [
+      {
+        "type": "route",
+        "uuid": "7089cabb-5fb8-43a8-ac8f-9a8d85873053"
+      },
+      {
+        "type": "route",
+        "uuid": "5b36bc43-7fb1-4295-9ab6-3019152655bf"
+      },
+      {
+        "type": "route",
+        "uuid": "0c377d2d-66b0-47a9-873b-a3f4ad5b892e"
+      },
+      {
+        "type": "route",
+        "uuid": "d182b4b2-f42e-4773-b137-b142e26aabd8"
+      },
+      {
+        "type": "route",
+        "uuid": "86a987f6-8159-45a9-a027-3e9f4c2ac92d"
+      },
+      {
+        "type": "route",
+        "uuid": "bd2e2c89-e17f-45f9-94ae-906c32ebb5c5"
+      },
+      {
+        "type": "route",
+        "uuid": "0e3d8274-3636-4d2e-a25d-574d07aa5e60"
+      },
+      {
+        "type": "route",
+        "uuid": "cd9e59bc-1e99-4b68-a7ee-f56017661e43"
+      },
+      {
+        "type": "route",
+        "uuid": "fed27f5f-5af2-4a13-ba85-de7f8618d912"
+      },
+      {
+        "type": "route",
+        "uuid": "252a7450-4599-4bdc-83c8-4b7b6a6a8b6e"
+      },
+      {
+        "type": "route",
+        "uuid": "b609afd2-f74d-4f80-82f8-1b720b2a45b6"
+      },
+      {
+        "type": "route",
+        "uuid": "ced10cc7-38d5-4fc0-a8b2-4956a8e6b6d3"
+      },
+      {
+        "type": "route",
+        "uuid": "1ceffaab-1c34-4fdd-9964-6cb9ca68ee4a"
+      },
+      {
+        "type": "route",
+        "uuid": "5803c51b-3a27-4a58-b667-ddfb27934010"
+      },
+      {
+        "type": "route",
+        "uuid": "4e4612e0-ce68-4885-b214-d6672842747c"
+      },
+      {
+        "type": "route",
+        "uuid": "c0e0ffd2-b4b4-4459-a824-8646e8ca58da"
+      },
+      {
+        "type": "route",
+        "uuid": "7894510b-46ad-442f-a410-511523351c57"
+      },
+      {
+        "type": "route",
+        "uuid": "5c6868c9-5194-4eeb-a245-4339980419bd"
+      },
+      {
+        "type": "route",
+        "uuid": "83d8300e-2bd0-4739-af90-7b4d7212529c"
+      },
+      {
+        "type": "route",
+        "uuid": "e02967b4-dbdb-459b-be77-a4046ecca551"
+      },
+      {
+        "type": "route",
+        "uuid": "1e0e81de-67d3-4e67-b9d3-16a1268b7f26"
+      },
+      {
+        "type": "route",
+        "uuid": "77f78594-5e3c-4e2a-8176-4e7ce5acd190"
+      },
+      {
+        "type": "route",
+        "uuid": "db882cb5-9a1d-44ae-af24-83a98bed8133"
+      },
+      {
+        "type": "route",
+        "uuid": "4966bc8c-8f93-48de-9218-9002591e0b0f"
+      }
+    ],
+    "proxyMode": false,
+    "proxyHost": "",
+    "proxyRemovePrefix": false,
+    "tlsOptions": {
+      "enabled": false,
+      "type": "CERT",
+      "pfxPath": "",
+      "certPath": "",
+      "keyPath": "",
+      "caPath": "",
+      "passphrase": ""
+    },
+    "cors": true,
+    "headers": [],
+    "proxyReqHeaders": [
+      {
+        "key": "",
+        "value": ""
+      }
+    ],
+    "proxyResHeaders": [
+      {
+        "key": "",
+        "value": ""
+      }
+    ],
+    "data": []
+  }

@@ -1,0 +1,9 @@
+{
+    "baseUrl": "https://localhost:44333/",
+    "endpoints": {
+        "products": "api/products",
+        "product": "api/product/",
+        "orders": "api/orders",
+        "order": "api/order/"
+    }
+}

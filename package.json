@@ -15,7 +15,7 @@
       "linux": "k6 run"
     },
     "validate": {
-      "win32": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1",
+      "win32": "mockoon-cli start --data ./swagger-data.json && k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1",
       "linux": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1"
     },
     "test": {

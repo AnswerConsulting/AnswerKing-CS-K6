@@ -7,15 +7,19 @@
     "build": "webpack",
     "scenario": "cross-os scenario",
     "validate": "cross-os validate",
-    "test": "cross-os test"
+    "test": "cross-os test",
+    "start-mock-server": "cross-os start-mock-server"
   },
   "cross-os": {
     "scenario": {
       "win32": "k6 run",
       "linux": "k6 run"
     },
+    "start-mock-server": {
+      "win32": "prism mock https://raw.githubusercontent.com/AnswerConsulting/AnswerKingAPI/main/AnswerKingAPI.yml"
+    },
     "validate": {
-      "win32": "mockoon-cli start --data ./swagger-data.json && k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1",
+      "win32": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1",
       "linux": "k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1"
     },
     "test": {

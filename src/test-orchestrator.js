@@ -1,7 +1,6 @@
 //This file acts as the main configuration file for a test.
 //Here we define the iteration, duration, executor type for a script.
-export { Products_GET } from "./scenarios/web/Products_GET.js"
-export { Orders_GET } from "./scenarios/web/Orders_GET.js"
+export { user_makes_an_order } from "./scenarios/web/usermakesanorder.js"
 
 export let options = {
     ext: {
@@ -12,18 +11,11 @@ export let options = {
 
         },
     },
-    scenarios: {
+    scenarios: {        
         test1: {
             executor: 'shared-iterations',
-            exec: "Products_GET",
-            vus: 100,
-            iterations: __ENV.ITERATION_OVERRIDE || 100,
-            maxDuration: "1m"
-        },
-        test2: {
-            executor: 'shared-iterations',
-            exec: "Orders_GET",
-            vus: 100,
+            exec: "user_makes_an_order",
+            vus: 1,
             iterations: __ENV.ITERATION_OVERRIDE || 100,
             maxDuration: "1m"
         }

@@ -1,0 +1,26 @@
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+  workflow_dispatch:
+    
+jobs:
+  validate-test:
+    name: k6-run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+      - name: Install Prism
+        run: npm install -g @stoplight/prism-cli
+      - name: Spin up Prism
+        run: npm run start-mock-server
+      - name: Install K6
+        run: snap install k6
+      - name: Validate test
+        run: npm run validate
+        
+        

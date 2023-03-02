@@ -26,6 +26,6 @@ jobs:
           npm install
       - name: Start server and run tests
         run: |
-          prism mock https://raw.githubusercontent.com/AnswerConsulting/AnswerKingAPI/main/AnswerKingAPI.yml          
+          prism mock https://raw.githubusercontent.com/AnswerConsulting/AnswerKingAPI/main/AnswerKingAPI.yml &       
           ./k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1
         

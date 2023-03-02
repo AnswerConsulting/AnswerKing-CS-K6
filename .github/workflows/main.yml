@@ -28,10 +28,10 @@ jobs:
         run: |
           prism mock https://raw.githubusercontent.com/AnswerConsulting/AnswerKingAPI/main/AnswerKingAPI.yml &
           sleep 5
-          ./k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1 --out json=test.json
+          ./k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1 --out csv=test.csv
       - name: Report
         uses: actions/upload-artifact@v3
         with:
-           name: code-coverage-report
-           path: test.json
+           name: Performance Report
+           path: test.csv
           

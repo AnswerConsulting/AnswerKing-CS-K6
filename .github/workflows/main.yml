@@ -18,11 +18,15 @@ jobs:
         run: npm i -g cross-os
       - name: Install Prism
         run: npm install -g @stoplight/prism-cli
-      - name: Spin up Prism
-        run: npm run start-mock-server
-      - name: Install K6
-        run: snap install k6
-      - name: Validate test
-        run: npm run validate
+      - name: Install k6
+        run: |
+          curl https://github.com/loadimpact/k6/releases/download/v0.26.2/k6-v0.26.2-linux64.tar.gz -L | tar xvz --strip-components 1
+      - name: Install packages
+        run: |
+          npm install
+      - name: Start server and run tests
+        run: |
+          npm run start-mock-server
+          npm run validate
         
         

@@ -29,7 +29,7 @@ jobs:
           prism mock https://raw.githubusercontent.com/AnswerConsulting/AnswerKingAPI/main/AnswerKingAPI.yml &
           sleep 5          
           K6_PROMETHEUS_RW_USERNAME=802646
-          K6_PROMETHEUS_RW_PASSWORD=eyJrIjoiMWUyNDZlYWZhZGUwZjc0ZTg5NjcwNGViODE1MmRmMzE5MGVmODdlNCIsIm4iOiJLNiIsImlkIjo4MDcxMTR9
+          K6_PROMETHEUS_RW_PASSWORD=
           K6_PROMETHEUS_RW_SERVER_URL=https://prometheus-prod-05-gb-south-0.grafana.net/api/prom/push
           ./k6 run ./src/test-orchestrator.js -e ITERATION_OVERRIDE=1 -o experimental-prometheus-rw
           
